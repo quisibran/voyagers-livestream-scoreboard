@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream Scoreboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #scoreboard {
+            width: 1920px;
+            height: 100px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .team {
+            display: inline-block;
+            font-family: sans-serif;
+        }
+
+        .score {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        #controls {
+            margin-top: 20px;
+        }
+
+        input, button {
+            font-size: 1em;
+            margin: 5px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div id="scoreboard">
+    <div class="team" id="teamVOYAGERS">
+        <h2>VOYAGERS</h2>
+        <p class="score" id="scoreVOYAGERS">0</p>
+    </div>
+
+    <div class="team" id="teamVISITORS">
+        <h2>VISITORS</h2>
+        <p class="score" id="scoreVISITORS">0</p>
+    </div>
+</div>
+
+<div id="controls">
+    <label for="teamVOYAGERSScore">VOYAGERS Score:</label>
+    <input type="number" id="teamVOYAGERSScore" min="0" value="0">
+    <button onclick="updateScore('VOYAGERS')">Update VOYAGERS</button>
+
+    <label for="teamVISITORSScore">VISITORS Score:</label>
+    <input type="number" id="teamVISITORSScore" min="0" value="0">
+    <button onclick="updateScore('VISITORS')">Update VISITORS</button>
+</div>
+
+<script>
+    // Function to update the score for a given team
+    function updateScore(teamId) {
+        const newScore = document.getElementById(`team${teamId}Score`).value;
+        document.getElementById(`score${teamId}`).textContent = newScore;
+    }
+</script>
+
+</body>
+</html>
+
